@@ -4,21 +4,57 @@ import 'package:comarquesgui/screens/widgets/my_weather_info.dart';
 import 'package:flutter/material.dart';
 
 class InfoComarcaDetall extends StatelessWidget {
+
+  // TO-DO
+  // Afegir la propietat comarca, de tipus Comarca? i proporcionar-la
+  // al constructor com a argument amb nom.
+
+
   const InfoComarcaDetall({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    Comarca comarca = RepositoryExemple.obtenirInfoComarca();
 
     // TO-DO
-    // Afegir la informació següent sobre la comarca:
-    // Població (num. d'habitants), latitud i longitud.
-    // Podeu combinar Column i Row per mostrar la informació tabulada
+    // Ja tenim aquesta informació en la propietat Comarca,
+    //proporcionada om a argument, pel que haurem d'eliminar esta línia.
 
-    // Abans de la informació, caldrà mostrar la informació sobre l'oratge a la comarca,
-    // mitjançant el widget personalitzat MyWeatherInfo(), que se us proporciona ja implementat
-    return const Placeholder();
+    Comarca? comarca = RepositoryExemple.obtenirInfoComarca("Alacant");
+    // Compte que ara comarca pot ser nul, pel que haurem de fer ús
+    // posteriormen de l'accés amb nuls ?. i de l'operador ?? per
+    // assignar valors en cas que siguen nuls.
+
+    //Comarca comarca = RepositoryExemple.obtenirInfoComarca();
+    var poblacio = comarca.poblacio;
+    var latitud = comarca.latitud;
+    var longitud = comarca.longitud;
+
+    // TO-DO
+    // Com que tenim l'Scaffold en InfoComarca i aquest és
+    // un giny que serà part del seu body, haurem d'eliminar
+    // aquest Scaffold
+
+    return Scaffold( // Estructura de la pantalla Material Design
+        body: Center( // Centrem el contingut
+          child: SingleChildScrollView( // Contenidor amb scroll per si ens n'eixim de l'espai disponible
+            child: Column( // Organitzem les provincies en forma de columna
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [Divider(color: Colors.black,),
+            Column(
+                children: <Widget>[
+                  const MyWeatherInfo(),
+                  Text('\nPoblacio: $poblacio \n', style: const TextStyle(
+                      fontSize: 22, color: Colors.black)),
+                  Text('Latitud: $latitud \n', style: const TextStyle(
+                      fontSize: 22, color: Colors.black)),
+                  Text('Longitud: $longitud \n', style: const TextStyle(
+                      fontSize: 22, color: Colors.black)),
+                ]
+            ),
+          ]),
+        )
+    ));
   }
 }

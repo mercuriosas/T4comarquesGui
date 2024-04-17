@@ -23,15 +23,13 @@ class ProvinciesScreen extends StatelessWidget {
   }
 }
 
-List <Widget> _creaLlistaProvincies(List<Provincia> provincies) {
-  // Retornarem una llista de widgets
+_creaLlistaProvincies(List<Provincia> provincies) {
   List<Widget> llista = [];
-
-  // Recorrem la llista de províncies
   for (Provincia provincia in provincies) {
-    llista.add( // I afegim a la llista un widget personalitzat de tipus ProvinciaRoundButton
+    debugPrint("Provincia: ${provincia.nom} amb imatge: ${provincia.imatge}");
+    llista.add(
         ProvinciaRoundButton(nom: provincia.nom, img: provincia.imatge ?? ""));
-    llista.add(const SizedBox(height: 20)); // Afegim un espai després del widget amb la província
+    llista.add(const SizedBox(height: 20));
   }
   return llista;
 }
@@ -44,7 +42,12 @@ class ProvinciaRoundButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TO-DO
+
+    // TO-DO.
+    // Envoltar el CircleAvatar amb un GestureDetector, de manera que
+    // quan fem clic en ell (event onTap), "naveguem" fins la pantalla
+    // amb les comarques de la provincia seleccionada.
+
     return CircleAvatar(
       radius: 110,
       backgroundImage: NetworkImage(img),

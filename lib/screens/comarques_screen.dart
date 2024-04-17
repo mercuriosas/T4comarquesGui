@@ -3,33 +3,50 @@ import 'package:comarquesgui/repository/repository_exemple.dart';
 import 'package:flutter/material.dart';
 
 class ComarquesScreen extends StatelessWidget {
-  const ComarquesScreen();
+  // ComarquesScreen necessita un nom de provincia
+  // TO-DO:
+  // Afegir un argument amb nom al constructor amb el nom de la provincia
+  // Afegir també una propietat a la classe de tipus "final String" a la classe pe a la provincia
+  // const ComarquesScreen();
+
+  const ComarquesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      // TO-DO:
+      // Incorporar un AppBar per a que mostre el text
+      // "Comarques de..." i el nom de la província seleccionada.
+
       body: Center(
-          // Proporciona a _creaLlistaComarques la llista de comarques d'Alacant
-          child:
-              _creaLlistaComarques(RepositoryExemple.obtenirComarques())), ////
+        // TO-DO:
+        // Crear la llista de comarques amb les comarques
+        // corresponents a la província actual (passar en lloc d'alacant
+        // la propietat amb el nom de la província que heu declarat)
+
+          child: _creaLlistaComarques(RepositoryExemple.obtenirComarques("Alacant"))
+      ), ////
     );
   }
 
   _creaLlistaComarques(List<dynamic> comarques) {
-    // Rebem la llista de JSON amb el nom i la imatge (img) de cada comarca
     return ListView.builder(
-        itemCount: comarques.length,
-        itemBuilder: (context, int position) {
-          return ComarcaCard(
-              img: comarques[position]['img'],
-              comarca: comarques[position]['nom'] // children(
-              );
-        });
+      itemCount: comarques.length,
+      itemBuilder: (BuildContext context, int index) {
+        if (comarques.isNotEmpty) {
+          String img = comarques[index]["img"];
+          String comarca = comarques[index]["nom"];
 
-    // TO-DO
-    // Caldrà fer ús d'un ListView.builder per recórrer la llista
-    // i generar un giny personalitzat de tipus ComarcaCard, amb la imatge i el nom.
-    return const Placeholder();
+          return ComarcaCard(img: img, comarca: comarca);
+
+        } else {
+          return const Center(
+            child: Text("La llista és buida"),
+          );
+        }
+      },
+    );
   }
 }
 
@@ -47,11 +64,14 @@ class ComarcaCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TO-DO
-    // Retorna un giny de tipus Card, amb el disseny que desitgeu, però
-    // que mostre la imatge (obtinguda d'Internet a partir de la url)
-    // i el nom de la comarca.
-    // TO-DO
+
+    // TO-DO:
+    // Envoltar aquest Card amb un GestureDetector, de manera
+    // que quan fem clic en ell, (event onTap), "naveguem" fins la pantalla
+    // amb la informació sobre la comarca seleccionada.
+    // Aquesta nova pantalla serà InfoComarca (fitxer infocomarca.dart),
+    // que haureu d'implementar.
+
     return Card(
       elevation: 5,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),

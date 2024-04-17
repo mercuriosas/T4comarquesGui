@@ -1,4 +1,5 @@
 import 'package:comarquesgui/screens/launcher_screen.dart';
+import 'package:comarquesgui/screens/provincies_screen.dart';
 import 'package:comarquesgui/themes/tema_comarques.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Material App',
       theme: temaComarques,
       home: const Scaffold(
-        body: LauncherScreen(),
+        body: ProvinciesScreen(),
       ),
     );
   }
