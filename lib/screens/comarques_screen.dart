@@ -3,6 +3,8 @@ import 'package:comarquesgui/repository/repository_exemple.dart';
 import 'package:comarquesgui/screens/infocomarca_general.dart';
 import 'package:flutter/material.dart';
 
+import 'infocomarca.dart';
+
 class ComarquesScreen extends StatelessWidget {
   // ComarquesScreen necessita un nom de provincia
   // TO-DO:
@@ -60,18 +62,12 @@ class ComarcaCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TO-DO:
-    // Envoltar aquest Card amb un GestureDetector, de manera
-    // que quan fem clic en ell, (event onTap), "naveguem" fins la pantalla
-    // amb la informació sobre la comarca seleccionada.
-    // Aquesta nova pantalla serà InfoComarca (fitxer infocomarca.dart),
-    // que haureu d'implementar.
 
     return GestureDetector(
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => InfoComarcaGeneral(comarca: this.comarca)),
+          MaterialPageRoute(builder: (context) => InfoComarca(comarca: comarca)),
         );
       },
       child: Card(

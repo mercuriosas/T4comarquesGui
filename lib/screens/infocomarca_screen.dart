@@ -13,11 +13,6 @@ import 'package:flutter/material.dart';
 
 class InfoComarcaScreen extends StatefulWidget {
 
-  //TO-DO:
-  // Definir la propietat de la classe nomComarca
-  // Recordeu que per mantindre el constructor constant,
-  // caldrà definir aquesta propietat com a final.
-  // A més, aquesta propietat s'ha d'inicialitzar en el constructor.
   const InfoComarcaScreen(String nom, {super.key});
   final String nomComarca="";
 

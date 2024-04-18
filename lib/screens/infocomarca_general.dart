@@ -11,33 +11,18 @@ class InfoComarcaGeneral extends StatelessWidget {
 
   const InfoComarcaGeneral({super.key, required this.comarca});
 
-  final String comarca;
+  final Comarca? comarca;
 
   @override
   Widget build(BuildContext context) {
-    // TO-DO
-    // Ja tenim aquesta informació en la propietat Comarca,
-    //proporcionada om a argument, pel que haurem d'eliminar esta línia.
-    Comarca? comarcaInfo = RepositoryExemple.obtenirInfoComarca(comarca);
-    // Compte que ara comarca pot ser nul, pel que haurem de fer ús
-    // posteriormen de l'accés amb nuls ?. i de l'operador ?? per
-    // assignar valors en cas que siguen nuls.
 
-    // TO-DO
-    // Com que tenim l'Scaffold en InfoComarca i aquest és
-    // un giny que serà part del seu body, haurem d'eliminar
-    // aquest Scaffold
+    print(comarca?.comarca);
 
-
-    //Comarca comarca = RepositoryExemple.obtenirInfoComarca();
-    /* var poblacio = comarca.poblacio;
-    var latitud = comarca.latitud;
-    var longitud = comarca.longitud;*/
+    print("imagen " + comarca!.img.toString());
 
     return Scaffold(
       // Estructura de la pantalla Material Design
-      appBar: AppBar(),
-      body: Center(
+       body: Center(
         // Centrem el contingut
         child: SingleChildScrollView(
           // Contenidor amb scroll per si ens n'eixim de l'espai disponible
@@ -45,16 +30,26 @@ class InfoComarcaGeneral extends StatelessWidget {
               // Organitzem les provincies en forma de columna
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-            Column(children: <Widget>[
-            SizedBox(height: 32.0),
+                  Image.network(comarca!.img.toString()),
+                  Text(comarca!.comarca,
+                      textAlign: TextAlign.justify,
+                      style: const TextStyle(
+                        fontSize: 22,
+                        color: Colors.black,
+                      )),
+                  Text(comarca!.capital.toString(),
+                      style: const TextStyle(fontSize: 22, color: Colors.black)),
+                  SizedBox(
+                    width: 300,
+                    child: Text(comarca!.desc.toString(),
+                        textAlign: TextAlign.justify,
+                        style: const TextStyle(fontSize: 14, color: Colors.black)),
+                  ),
+
             ])
-        ]),
+        ),
       ),
-    ),
-    floatingActionButton: FloatingActionButton(
-    onPressed: () {},
-    ),
-    bottomNavigationBar: BottomAppBar(),
     );
+
   }
 }

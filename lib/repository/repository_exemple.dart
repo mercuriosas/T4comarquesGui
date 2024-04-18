@@ -43,33 +43,17 @@ class RepositoryExemple {
   }
 
   static Comarca? obtenirInfoComarca(String comarca) {
-    // Rep el nom d'una comarca (String comarca), i
-    // retorna un objecte de tipus Comarca, amb la
-    // informació sobre aquesta.
 
-    Comarca datos;
+    Comarca? datos = Comarca(comarca: "");
+
     for (var p in RepositoryData.provincies) {
-      for (var c in p["comarques"]){
-        if(c["comarques"] == comarca){
-          datos= Comarca.fromJSON(c);
+        for (var c in p["comarques"]) {
+          if (c["comarca"] == comarca) {
+            datos = Comarca.fromJSON(c);
+
+          }
         }
-        else{
-          return null;
-        }
-      }
     }
-
-    // TO-DO
-    // Recorrem la llista de províncies del RepositoryData.provinies
-    //     Dins de cada província, recorrem la llista de comarques d'aquesta
-    //         Si el nom de la comarca que busquem, coincideix
-    //         amb el nom de la comarca, retornem la comarca.
-    //         Recordeu que es trata d'un JSON i que haurem de
-    //         retornar un objecte de tipus Comarca (recordeu
-    //         que tenim el constructor fromJSON)
-
-    // Si no la troba retornem null
-
+    return datos;
   }
-
 }
