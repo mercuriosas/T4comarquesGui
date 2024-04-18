@@ -47,6 +47,18 @@ class RepositoryExemple {
     // retorna un objecte de tipus Comarca, amb la
     // informació sobre aquesta.
 
+    Comarca datos;
+    for (var p in RepositoryData.provincies) {
+      for (var c in p["comarques"]){
+        if(c["comarques"] == comarca){
+          datos= Comarca.fromJSON(c);
+        }
+        else{
+          return null;
+        }
+      }
+    }
+
     // TO-DO
     // Recorrem la llista de províncies del RepositoryData.provinies
     //     Dins de cada província, recorrem la llista de comarques d'aquesta
@@ -57,7 +69,7 @@ class RepositoryExemple {
     //         que tenim el constructor fromJSON)
 
     // Si no la troba retornem null
-    return null;
+
   }
 
 }

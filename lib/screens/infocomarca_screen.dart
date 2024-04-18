@@ -18,7 +18,8 @@ class InfoComarcaScreen extends StatefulWidget {
   // Recordeu que per mantindre el constructor constant,
   // caldrà definir aquesta propietat com a final.
   // A més, aquesta propietat s'ha d'inicialitzar en el constructor.
-  const InfoComarcaScreen({super.key});
+  const InfoComarcaScreen(String nom, {super.key});
+  final String nomComarca="";
 
   @override
   State<InfoComarcaScreen> createState() => _InfoComarcaScreenState();
@@ -27,6 +28,8 @@ class InfoComarcaScreen extends StatefulWidget {
 
 
 class _InfoComarcaScreenState extends State<InfoComarcaScreen> {
+
+  Comarca? comarca = RepositoryExemple.obtenirInfoComarca("Alacant");
 
   // TO-DO:
   // Definir una propietat que faça d´index de la pantalla actual per al NavigationBar
@@ -53,9 +56,21 @@ class _InfoComarcaScreenState extends State<InfoComarcaScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Placeholder();
 
-    /*
+   return Scaffold( // Estructura de la pantalla Material Design
+        body: Center( // Centrem el contingut
+            child: SingleChildScrollView( // Contenidor amb scroll per si ens n'eixim de l'espai disponible
+              child: Column( // Organitzem les provincies en forma de columna
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [Divider(color: Colors.black,),
+                    Column(
+                        children: <Widget>[
+                        ]
+                    ),
+                  ]),
+            )
+        ));
+   /*
 
   Aci crearem un Scaffold que contindrà:
 

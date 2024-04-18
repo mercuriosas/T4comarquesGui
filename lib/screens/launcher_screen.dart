@@ -1,9 +1,10 @@
+
 import 'package:comarquesgui/screens/comarques_screen.dart';
 import 'package:comarquesgui/screens/infocomarca_detall.dart';
 import 'package:comarquesgui/screens/infocomarca_general.dart';
 import 'package:comarquesgui/screens/provincies_screen.dart';
 import 'package:flutter/material.dart';
-
+/*
 class LauncherScreen extends StatelessWidget {
   const LauncherScreen({
     super.key,
@@ -30,7 +31,7 @@ class LauncherScreen extends StatelessWidget {
                 Navigator.push<void>(
                   context,
                   MaterialPageRoute<void>(
-                    builder: (BuildContext context) => const ComarquesScreen(),
+                    builder: (BuildContext context) => ComarquesScreen("", nom: '',),
                   ),
                 );
               },
@@ -64,3 +65,4 @@ class LauncherScreen extends StatelessWidget {
     );
   }
 }
+*/

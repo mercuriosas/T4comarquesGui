@@ -27,9 +27,9 @@ class InfoComarcaDetall extends StatelessWidget {
     // assignar valors en cas que siguen nuls.
 
     //Comarca comarca = RepositoryExemple.obtenirInfoComarca();
-    var poblacio = comarca.poblacio;
+   /* var poblacio = comarca.poblacio;
     var latitud = comarca.latitud;
-    var longitud = comarca.longitud;
+    var longitud = comarca.longitud;*/
 
     // TO-DO
     // Com que tenim l'Scaffold en InfoComarca i aquest és
@@ -45,12 +45,12 @@ class InfoComarcaDetall extends StatelessWidget {
             Column(
                 children: <Widget>[
                   const MyWeatherInfo(),
-                  Text('\nPoblacio: $poblacio \n', style: const TextStyle(
+                  /*Text('\nPoblacio: $poblacio \n', style: const TextStyle(
                       fontSize: 22, color: Colors.black)),
                   Text('Latitud: $latitud \n', style: const TextStyle(
                       fontSize: 22, color: Colors.black)),
                   Text('Longitud: $longitud \n', style: const TextStyle(
-                      fontSize: 22, color: Colors.black)),
+                      fontSize: 22, color: Colors.black)),*/
                 ]
             ),
           ]),
